@@ -5,11 +5,13 @@
 
     @if(\Request::is('static-sign-up')) 
         @include('layouts.navbars.guest.nav')
+        <h1>ESTO ES STATIC-SIGN-UP</h1>
         @yield('content')
         @include('layouts.footers.guest.footer')
     
     @elseif (\Request::is('static-sign-in')) 
         @include('layouts.navbars.guest.nav')
+            <h1>ESTO ES STATIC-SIGN-IN</h1>
             @yield('content')
         @include('layouts.footers.guest.footer')
     
@@ -19,6 +21,7 @@
             <main class="main-content position-relative max-height-vh-100 h-100 mt-1 border-radius-lg overflow-hidden">
                 @include('layouts.navbars.auth.nav-rtl')
                 <div class="container-fluid py-4">
+                    <H1>ESTO ES EL RTL :v</H1>
                     @yield('content')
                     @include('layouts.footers.auth.footer')
                 </div>
@@ -27,6 +30,7 @@
         @elseif (\Request::is('profile'))  
             @include('layouts.navbars.auth.sidebar')
             <div class="main-content position-relative bg-gray-100 max-height-vh-100 h-100">
+                <h1>ESTO ES EL PROFILE</h1>
                 @include('layouts.navbars.auth.nav')
                 @yield('content')
             </div>
@@ -36,6 +40,7 @@
             <div class="border-radius-xl mt-3 mx-3 position-relative" style="background-image: url('../assets/img/vr-bg.jpg') ; background-size: cover;">
                 @include('layouts.navbars.auth.sidebar')
                 <main class="main-content mt-1 border-radius-lg">
+                    <h1>ESTO ES EL VIRTUAL REALITY</h1>
                     @yield('content')
                 </main>
             </div>
@@ -47,12 +52,13 @@
                 @include('layouts.navbars.auth.nav')
                 <div class="container-fluid py-4">
                     @yield('content')
+                    <h1>CUANDO NO ES NADA DE LO ANTERIOR ENTRA ESTÉ xD</h1>
                     @include('layouts.footers.auth.footer')
                 </div>
             </main>
         @endif
-
-        @include('components.fixed-plugin')
+        {{-- Barra lateral derecha que muestra documentación y configuración de la plantilla --}}
+        {{-- @include('components.fixed-plugin') --}}
     @endif
 
     
