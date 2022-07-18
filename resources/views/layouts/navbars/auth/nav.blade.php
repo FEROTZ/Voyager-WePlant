@@ -36,19 +36,19 @@
                 {{-- Icono user --}}
                 <li class="nav-item dropdown pe-2 d-flex align-items-center">
                     <a href="javascript:;" class="nav-link text-body p-0" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
-                        <i class="fa fa-user me-sm-1"></i>
+                        <i class="fa fa-user cursor-pointer"></i>
                     </a>
-                    {{-- Notificación --}}
-                    <ul class="dropdown-menu dropdown-menu-end px-2 py-3 me-sm-n4 dropdown-menu-user mr-user" aria-labelledby="dropdownMenuButton">
+                    {{-- Notificaciones --}}
+                    <ul class="dropdown-menu dropdown-menu-end px-2 py-3 me-sm-n4" aria-labelledby="dropdownMenuButton">
                         <li class="mb-2">
-                            <a class="dropdown-item border-radius-ms" href="{{ url('user-profile') }}">
+                            <a class="dropdown-item border-radius-md" href="{{ url('user-profile') }}">
                                 <div class="d-flex py-1">
                                     <div class="my-auto">
-                                        <img src="{{url('../assets/img/team/Fernando.jpg')}}" class="avatar avatar-sm  me-3 ">
+                                        <img src="{{url('../assets/img/team/Fernando.jpg')}}" class="avatar avatar-sm  me-3">
                                     </div>
                                     <div class="d-flex flex-column justify-content-center">
                                         <h6 class="text-sm font-weight-normal mb-1">
-                                            <span>Fernando Cortés</span>
+                                            <span>Fernando</span>
                                         </h6>
                                         <p class="text-xs text-secondary mb-0">
                                             I am a web developer
@@ -57,10 +57,10 @@
                                 </div>
                             </a>
                         </li>
-                        <li>
+                        <li class="mb-2">
                             <a class="dropdown-item border-radius-md" href="/logout">
                                 <div class="d-flex py-1">
-                                    <div class="avatar avatar-sm bg-gradient-secondary  me-3  my-auto">
+                                    <div class="avatar avatar-sm bg-gradient-secondary me-3 my-auto">
                                         <i class="fas fa-sign-out-alt"></i>
                                     </div>
                                     <div class="d-flex flex-column justify-content-center">
