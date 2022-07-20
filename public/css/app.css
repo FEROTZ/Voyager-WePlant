@@ -13,3 +13,7 @@
 .mb-n4{
   margin-bottom:-3.5rem!important;
 }
+
+.border-primary-dashed{
+  border: 0.2rem dashed #274B36!important;
+}

@@ -1,12 +1,9 @@
 @extends('layouts.app')
 
 @section('auth')
-
-
     @if(\Request::is('profile'))
         @include('layouts.navbars.auth.sidebar')
         <div class="main-content position-relative bg-gray-100 max-height-vh-100 h-100">
-            <h1>ESTO ES EL PROFILE</h1>
             @include('layouts.navbars.auth.nav')
             @yield('content')
         </div>
@@ -16,10 +13,8 @@
             @include('layouts.navbars.auth.nav')
             <div class="container-fluid py-4">
                 @yield('content')
-                <h1>CUANDO NO ES NADA DE LO ANTERIOR ENTRA ESTÉ xD</h1>
                 @include('layouts.footers.auth.footer')
             </div>
         </main>
     @endif
-
 @endsection
