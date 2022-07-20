@@ -49,9 +49,9 @@
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link {{ (Request::is('billing') ? 'active' : '') }}" href="{{ url('billing') }}">
+        <a class="nav-link {{ (Request::is('sabias-que') ? 'active' : '') }}" href="{{ url('sabias-que') }}">
           <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
-            <i style="font-size: 1rem;" class="fas fa-question ps-2 pe-2 text-center text-dark {{ (Request::is('billing') ? 'text-white' : 'text-dark') }} " aria-hidden="true"></i>
+            <i style="font-size: 1rem;" class="fas fa-question ps-2 pe-2 text-center text-dark {{ (Request::is('sabias-que') ? 'text-white' : 'text-dark') }} " aria-hidden="true"></i>
           </div>
           <span class="nav-link-text ms-1">¿Sabías que?</span>
         </a>

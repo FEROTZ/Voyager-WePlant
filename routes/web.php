@@ -29,9 +29,9 @@ Route::group(['middleware' => 'auth'], function () {
 		return view('dashboard');
 	})->name('dashboard');
 
-	Route::get('billing', function () {
-		return view('billing');
-	})->name('billing');
+	Route::get('sabias-que', function () {
+		return view('sabias-que');
+	})->name('sabias-que');
 
 	Route::get('profile', function () {
 		return view('profile');
