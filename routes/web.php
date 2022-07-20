@@ -37,17 +37,17 @@ Route::group(['middleware' => 'auth'], function () {
 		return view('profile');
 	})->name('profile');
 
-	Route::get('rtl', function () {
-		return view('rtl');
-	})->name('rtl');
+	Route::get('dashexample', function () {
+		return view('dashboard-example');
+	})->name('dashexample');
 
-	Route::get('user-management', function () {
-		return view('laravel-examples/user-management');
-	})->name('user-management');
+	Route::get('mis-cultivos', function () {
+		return view('mis-cultivos');
+	})->name('mis-cultivos');
 
-	Route::get('tables', function () {
-		return view('tables');
-	})->name('tables');
+	Route::get('mis-huertos', function () {
+		return view('mis-huertos');
+	})->name('mis-huertos');
 
     Route::get('virtual-reality', function () {
 		return view('virtual-reality');
