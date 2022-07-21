@@ -17,3 +17,10 @@
 .border-primary-dashed{
   border: 0.2rem dashed #274B36!important;
 }
+
+.cover-centered{
+  background-position-y: 50%;
+}
+input[type="file"] {
+  display: none;
+}

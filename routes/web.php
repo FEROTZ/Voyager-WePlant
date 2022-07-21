@@ -25,12 +25,12 @@ use Illuminate\Support\Facades\Route;
 Route::group(['middleware' => 'auth'], function () {
 
     Route::get('/', [HomeController::class, 'home']);
-	Route::get('dashboard', function () {
-		return view('dashboard');
-	})->name('dashboard');
+	Route::get('Dashboard', function () {
+		return view('Dashboard');
+	})->name('Dashboard');
 
 	Route::get('sabias-que', function () {
-		return view('sabias-que');
+		return view('sabias que/sabias-que');
 	})->name('sabias-que');
 
 	Route::get('profile', function () {
@@ -42,16 +42,20 @@ Route::group(['middleware' => 'auth'], function () {
 	})->name('dashexample');
 
 	Route::get('mis-cultivos', function () {
-		return view('mis-cultivos');
+		return view('cultivos/mis-cultivos');
 	})->name('mis-cultivos');
 
+	Route::get('nuevo-cultivo', function () {
+		return view('cultivos/nuevo');
+	})->name('nuevo-cultivo');
+
 	Route::get('mis-huertos', function () {
-		return view('mis-huertos');
+		return view('huertos/mis-huertos');
 	})->name('mis-huertos');
 
-    Route::get('virtual-reality', function () {
-		return view('virtual-reality');
-	})->name('virtual-reality');
+	Route::get('nuevo-huerto', function () {
+		return view('huertos/nuevo');
+	})->name('nuevo-huerto');
 
     Route::get('static-sign-in', function () {
 		return view('static-sign-in');

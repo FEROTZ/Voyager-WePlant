@@ -23,29 +23,33 @@
                     </div>
                 </div>
                 <div class="card-body px-0 pt-0 pb-2">
-                    <div class="overflow-hidden position-relative border-radius-lg bg-cover h-100 m-4" style="background-image: url('../assets/img/vegetables/epazote.jpg');">
+                    <div class="overflow-hidden position-relative border-radius-lg bg-cover h-100 m-4 cover-centered" style="background-image: url('../assets/img/vegetables/calabazas.jpg');">
                         <span class="mask bg-gradient-dark"></span>
-                        <div class="card-body position-relative z-index-1 d-flex flex-column h-100 p-3">
-                            <h5 class="text-white font-weight-bolder mb-4 pt-2">Epazote</h5>
-                            <a class="text-white text-sm font-weight-bold mb-0 icon-move-right mt-auto pt-4" href="javascript:;">
-                                Acceder
-                                <i class="fas fa-arrow-right text-sm ms-1" aria-hidden="true"></i>
-                            </a>
-                        </div>
+                        <a class="icon-move-right" href="/#">
+                            <div class="card-body position-relative z-index-1 d-flex flex-column h-100 p-3">
+                                <h5 class="text-white font-weight-bolder mb-4 pt-2">Calabazas</h5>
+                                <div class="text-white text-sm font-weight-bold mb-0 mt-auto pt-4" href="javascript:;">
+                                    Acceder
+                                    <i class="fas fa-arrow-right text-sm ms-1" aria-hidden="true"></i>
+                                </div>
+                            </div>
+                        </a>
                     </div>
 
-                    <div class="overflow-hidden position-relative border-radius-lg bg-cover h-100 m-4" style="background-image: url('../assets/img/vegetables/epazote.jpg');">
+                    <div class="overflow-hidden position-relative border-radius-lg bg-cover h-100 m-4 cover-centered" style="background-image: url('../assets/img/vegetables/epazote.jpg');">
                         <span class="mask bg-gradient-dark"></span>
-                        <div class="card-body position-relative z-index-1 d-flex flex-column h-100 p-3">
-                            <h5 class="text-white font-weight-bolder mb-4 pt-2">Epazote</h5>
-                            <a class="text-white text-sm font-weight-bold mb-0 icon-move-right mt-auto pt-4" href="javascript:;">
-                                Acceder
-                                <i class="fas fa-arrow-right text-sm ms-1" aria-hidden="true"></i>
-                            </a>
-                        </div>
+                        <a class="icon-move-right" href="/#">
+                            <div class="card-body position-relative z-index-1 d-flex flex-column h-100 p-3">
+                                <h5 class="text-white font-weight-bolder mb-4 pt-2">Epazote</h5>
+                                <div class="text-white text-sm font-weight-bold mb-0 mt-auto pt-4" href="javascript:;">
+                                    Acceder
+                                    <i class="fas fa-arrow-right text-sm ms-1" aria-hidden="true"></i>
+                                </div>
+                            </div>
+                        </a>
                     </div>
 
-                    <a href="javascript:;">
+                    <a href="/nuevo-cultivo">
                         <div class="overflow-hidden position-relative border-radius-lg h-100 m-4">
                             <div class="card-body position-relative z-index-1 d-flex flex-column h-100 p-3 border-primary-dashed">
                                     <div class="p-2 justify-content-center text-center">
