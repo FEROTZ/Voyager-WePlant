@@ -22,33 +22,22 @@
                     </div>
                 </div>
                 <div class="card-body px-0 pt-0 pb-2">
-                    <div class="overflow-hidden position-relative border-radius-lg bg-cover h-100 m-4" style="background-image: url('../assets/img/vegetables/frijoles.jpg');">
-                        <span class="mask bg-gradient-dark"></span>
-                        <a class="icon-move-right" href="/#">
-                            <div class="card-body position-relative z-index-1 d-flex flex-column h-100 p-3">
-                                <h5 class="text-white font-weight-bolder mb-4 pt-2">Frijoles</h5>
-                                <div class="text-white text-sm font-weight-bold mb-0 mt-auto pt-4" href="javascript:;">
-                                    Acceder
-                                    <i class="fas fa-arrow-right text-sm ms-1" aria-hidden="true"></i>
+                    @foreach ($orchards as $orchard)
+                        <div class="overflow-hidden position-relative border-radius-lg bg-cover h-100 m-4" style="background-image: url('../assets/img/vegetables/frijoles.jpg');">
+                            <span class="mask bg-gradient-dark"></span>
+                            <a class="icon-move-right" href="/#">
+                                <div class="card-body position-relative z-index-1 d-flex flex-column h-100 p-3">
+                                    <h5 class="text-white font-weight-bolder mb-4 pt-2">Frijoles</h5>
+                                    <div class="text-white text-sm font-weight-bold mb-0 mt-auto pt-4" href="javascript:;">
+                                        {{$ochard->name}}
+                                        <i class="fas fa-arrow-right text-sm ms-1" aria-hidden="true"></i>
+                                    </div>
                                 </div>
-                            </div>
-                        </a>
-                    </div>
+                            </a>
+                        </div>
+                    @endforeach
 
-                    <div class="overflow-hidden position-relative border-radius-lg bg-cover h-100 m-4" style="background-image: url('../assets/img/vegetables/zanahorias.jpg');">
-                        <span class="mask bg-gradient-dark"></span>
-                        <a class="icon-move-right" href="/#">
-                            <div class="card-body position-relative z-index-1 d-flex flex-column h-100 p-3">
-                                <h5 class="text-white font-weight-bolder mb-4 pt-2">Zanahorias</h5>
-                                <div class="text-white text-sm font-weight-bold mb-0 mt-auto pt-4" href="javascript:;">
-                                    Acceder
-                                    <i class="fas fa-arrow-right text-sm ms-1" aria-hidden="true"></i>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-
-                    <a href="nuevo-huerto">
+                    <a href="{{route('create.huerto')}}">
                         <div class="overflow-hidden position-relative border-radius-lg h-100 m-4">
                             <div class="card-body position-relative z-index-1 d-flex flex-column h-100 p-3 border-primary-dashed">
                                     <div class="p-2 justify-content-center text-center">
@@ -58,6 +47,7 @@
                             </div>
                         </div>
                     </a>
+
                 </div>
             </div>
         </div>
