@@ -27,9 +27,9 @@
                             <span class="mask bg-gradient-dark"></span>
                             <a class="icon-move-right" href="/#">
                                 <div class="card-body position-relative z-index-1 d-flex flex-column h-100 p-3">
-                                    <h5 class="text-white font-weight-bolder mb-4 pt-2">Frijoles</h5>
+                                    <h5 class="text-white font-weight-bolder mb-4 pt-2">{{$orchard->name}}</h5>
                                     <div class="text-white text-sm font-weight-bold mb-0 mt-auto pt-4" href="javascript:;">
-                                        {{$ochard->name}}
+                                        Acceder
                                         <i class="fas fa-arrow-right text-sm ms-1" aria-hidden="true"></i>
                                     </div>
                                 </div>

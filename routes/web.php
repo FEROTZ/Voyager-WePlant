@@ -55,6 +55,7 @@ Route::group(['middleware' => 'auth'], function () {
 
 
 	Route::get('nuevo-huerto', [OrchardController::class, 'create'])->name('create.huerto');
+    Route::post('nuevo-huerto', [OrchardController::class, 'store'])->name('store.huerto');
 
 
     Route::get('static-sign-in', function () {

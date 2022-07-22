@@ -17,9 +17,9 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('image_url')->default('user.png');
-            $table->longText('description')->nullable();
             $table->string('location');
             $table->timestamps();
+            $table->string('serial');
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
         });
