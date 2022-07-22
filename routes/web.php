@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\ChangePasswordController;
 use App\Http\Controllers\HomeController;
+/* Código agregado por Manuel */use App\Http\Controllers\OrchardController;
+/* Código agregado por Manuel */use App\Http\Controllers\CropController;
 use App\Http\Controllers\InfoUserController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\ResetController;
@@ -25,6 +27,7 @@ use Illuminate\Support\Facades\Route;
 Route::group(['middleware' => 'auth'], function () {
 
     Route::get('/', [HomeController::class, 'home']);
+
 	Route::get('Dashboard', function () {
 		return view('Dashboard');
 	})->name('Dashboard');
@@ -41,21 +44,18 @@ Route::group(['middleware' => 'auth'], function () {
 		return view('dashboard-example');
 	})->name('dashexample');
 
-	Route::get('mis-cultivos', function () {
-		return view('cultivos/mis-cultivos');
-	})->name('mis-cultivos');
+	Route::get('mis-cultivos', [CropController::class, 'index'])->name('mis-cultivos');
 
-	Route::get('nuevo-cultivo', function () {
-		return view('cultivos/nuevo');
-	})->name('nuevo-cultivo');
+	Route::get('nuevo-cultivo', [CropController::class, 'create'])->name('create.cultivo');
+    Route::post('nuevo-cultivo', [CropController::class, 'store'])->name('store.cultivo');
 
-	Route::get('mis-huertos', function () {
-		return view('huertos/mis-huertos');
-	})->name('mis-huertos');
 
-	Route::get('nuevo-huerto', function () {
-		return view('huertos/nuevo');
-	})->name('nuevo-huerto');
+
+	Route::get('mis-huertos', [OrchardController::class, 'index'])->name('mis-huertos');
+
+
+	Route::get('nuevo-huerto', [OrchardController::class, 'create'])->name('create.huerto');
+
 
     Route::get('static-sign-in', function () {
 		return view('static-sign-in');

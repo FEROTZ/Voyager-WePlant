@@ -44,5 +44,10 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-    
+
+     /* Cógo modificado por Manuel */
+        public function orchards(){
+            return $this->hasMany('App\Models\Orchard');
+        }
+
 }
