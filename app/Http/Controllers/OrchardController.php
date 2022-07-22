@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Orchard;
+use App\Models\Crop;
 use Illuminate\Http\Request;
 
 class OrchardController extends Controller
@@ -15,20 +16,28 @@ class OrchardController extends Controller
     }
 
     public function create(){
-        return view('huertos.nuevo');
+        $id = auth()->id();
+        $crops = Crop::all()->where('user_id', $id);
+        return view('huertos.nuevo', compact('crops'));
     }
 
     public function store(Request $request)
     {
+        $crop = Crop::find($request->crop);
 
         $orchard = new Orchard();
 
-        $orchard->name = $request->name;
+        $orchard->name = $crop->name;
         $orchard->location = $request->location;
         $orchard->serial = $request->serial;
+        $orchard->user_id = auth()->id();
+        $orchard->crop_id = $request->crop;
 
 
-        return $request->all();
+        $orchard->save();
+
+        return redirect()->route('mis-huertos');
+
     }
 
     public function show( $orchard ){

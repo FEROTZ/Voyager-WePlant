@@ -33,7 +33,7 @@
     <div class="container-fluid py-4">
         <div class="card">
             <div class="card-body pt-4 p-3">
-                <form action="/#" method="POST" role="form text-left">
+                <form action="{{route('store.huerto')}}" method="POST" role="form text-left">
                     @csrf
                     @if($errors->any())
                         <div class="mt-3  alert alert-primary alert-dismissible fade show" role="alert">
@@ -56,11 +56,10 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="serial-number" class="form-control-label">{{ __('No. serie del WePlant') }}</label>
-                                <div class="@error('orchard.serial-number')border border-danger rounded-3 @enderror">
-                                    <input class="form-control" value="{{ auth()->user()->name }}" type="text" placeholder="Ingresa el numero de serie del dispositivo WePlant" id="serial-number" name="No. serie">
-                                    {{-- hay que sustituir todos estos error pero no sé que se ponga aquí --}}
-                                    @error('name')
+                                <label for="serial" class="form-control-label">{{ __('No. serie del WePlant') }}</label>
+                                <div class="@error('orchard.serial')border border-danger rounded-3 @enderror">
+                                    <input class="form-control" value="" type="text" placeholder="Ingresa el numero de serie del dispositivo WePlant" id="serial" name="serial">
+                                    @error('serial')
                                       <p class="text-danger text-xs mt-2">{{ $message }}</p>
                                     @enderror
                                 </div>
@@ -69,14 +68,14 @@
                         <div class="col-md-6">
                             <div class="form-group">
                               <label for="crop" class="form-control-label">{{ __('Cultivo a plantar') }}</label>
-                              <div class="@error('email')border border-danger rounded-3 @enderror">
-                                <select class="form-select" id="crop" aria-label="Default select example">
-                                  <option selected>Selecciona un cultivo</option>
-                                  <option value="1">Zanahorias</option>
-                                  <option value="2">Calabazas</option>
-                                  <option value="3">Epazote</option>
+                              <div class="@error('crop')border border-danger rounded-3 @enderror">
+                                <select class="form-select" id="crop" name="crop" aria-label="Default select example" required>
+                                    <option selected>Selecciona un cultivo</option>
+                                    @foreach ($crops as $crop)
+                                    <option value="{{$crop->id}}">{{$crop->name}}</option>
+                                    @endforeach
                                 </select>
-                                  @error('email')
+                                  @error('crop')
                                       <p class="text-danger text-xs mt-2">{{ $message }}</p>
                                   @enderror
                               </div>
@@ -89,7 +88,7 @@
                                 <label for="location" class="form-control-label">{{ __('Lugar en el que se encuentra el huerto') }}</label>
                                 <div class="@error('humidity.low')border border-danger rounded-3 @enderror">
                                     <input class="form-control" type="text" placeholder="Oficina, casa, jardín abuela" id="location" name="location" value="">
-                                        @error('phone')
+                                        @error('location')
                                             <p class="text-danger text-xs mt-2">{{ $message }}</p>
                                         @enderror
                                 </div>
