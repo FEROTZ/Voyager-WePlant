@@ -31,14 +31,14 @@
                             <a class="dropdown-item border-radius-md" href="{{ url('user-profile') }}">
                                 <div class="d-flex py-1">
                                     <div class="my-auto">
-                                        <img src="{{url('../assets/img/team/Fernando.jpg')}}" class="avatar avatar-sm  me-3">
+                                        <img src="{{auth()->user()->image_url}}" class="avatar avatar-sm  me-3">
                                     </div>
                                     <div class="d-flex flex-column justify-content-center">
                                         <h6 class="text-sm font-weight-normal mb-1">
-                                            <span>Fernando</span>
+                                            <span>{{auth()->user()->name}}</span>
                                         </h6>
                                         <p class="text-xs text-secondary mb-0">
-                                            I am a web developer
+                                            {{auth()->user()->about_me}}
                                         </p>
                                     </div>
                                 </div>

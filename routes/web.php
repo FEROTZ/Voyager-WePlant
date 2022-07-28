@@ -45,9 +45,14 @@ Route::group(['middleware' => 'auth'], function () {
 	})->name('dashexample');
 
 	Route::get('mis-cultivos', [CropController::class, 'index'])->name('mis-cultivos');
+	Route::get('mi-cultivo/{id}', [CropController::class, 'show'])->name('show.cultivo');
 
 	Route::get('nuevo-cultivo', [CropController::class, 'create'])->name('create.cultivo');
-    Route::post('nuevo-cultivo', [CropController::class, 'store'])->name('store.cultivo');
+	Route::post('nuevo-cultivo', [CropController::class, 'store'])->name('store.cultivo');
+
+	Route::post('mi-cultivo/actualizar/{id}', [CropController::class, 'update'])->name('update.cultivo');
+	Route::post('mi-cultivo/eliminar/{id}', [CropController::class, 'destroy'])->name('destroy.cultivo');
+
 
 
 

@@ -23,11 +23,11 @@ class SessionsController extends Controller
         if(Auth::attempt($attributes))
         {
             session()->regenerate();
-            return redirect('dashboard')->with(['success'=>'You are logged in.']);
+            return redirect('Dashboard')->with(['Hecho'=>'Iniciaste sesión.']);
         }
         else{
 
-            return back()->withErrors(['email'=>'Email or password invalid.']);
+            return back()->withErrors(['email'=>'Correo electrónico o contraseña inválidos.']);
         }
     }
     

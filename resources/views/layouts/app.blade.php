@@ -8,6 +8,10 @@
   @if (env('IS_DEMO'))
       <x-demo-metas></x-demo-metas>
   @endif
+{{-- Sweeet alert and jQuery --}}
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/10.5.1/sweetalert2.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/10.5.1/sweetalert2.all.min.js"></script>
 
   <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
   <link rel="icon" type="image/png" href="../assets/img/small-logos/logo-icon-light.png">
@@ -15,7 +19,6 @@
     WePlant | {{ str_replace('-', '      ', Request::path()) }}
   </title>
   <!--     Fonts and icons     -->
-  {{-- <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" /> --}}
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

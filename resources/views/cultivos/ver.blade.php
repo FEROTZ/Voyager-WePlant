@@ -4,7 +4,7 @@
 
 <div>
     <div class="container-fluid">
-        <div class="page-header min-height-300 border-radius-xl mt-4 cover-centered" style="background-image:url('');">
+        <div class="page-header min-height-300 border-radius-xl mt-4" style="background-image: url('../assets/img/vegetables/zanahorias.jpg'); background-position-y: 50%;">
             <span class="mask bg-gradient-primary opacity-6"></span>
         </div>
         <div class="card card-body blur shadow-blur mx-4 mt-n6">
@@ -12,19 +12,19 @@
                 <div class="col-auto my-auto">
                     <div class="h-100">
                         <h5 class="mb-1">
-                            {{ __('Agregar un nuevo cultivo') }}
+                            {{ __('Editar cultivo') }}
                         </h5>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6 my-sm-auto ms-sm-auto me-sm-0 mx-auto mt-3">
-                    <div class="nav-wrapper position-relative end-0">
-                        <div class="d-flex justify-content-end">
-                            <label for="file" class="custom-file-upload btn bg-gradient-light btn-md mt-4 mb-4">
-                                {{ __('Editar imagen') }}
-                                <i class="fas fa-edit ms-2"></i>
-                            </label>
-                            <input id="file" type="file" name="file"/>
-                        </div>
+                    <div class="nav-wrapper position-relative end-0 d-flex justify-content-end">
+                        <button type="button" class="btn btn-outline-primary"
+                        title="Eliminar" onclick="deleteConfirmation({{$crop->id}})">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                        <button type="button" class="btn btn-outline-primary" style="margin-left:1rem!important" title="Actualizar">
+                            <i class="fas fa-edit"></i>
+                        </button>
                     </div>
                 </div>
             </div>
@@ -33,7 +33,7 @@
     <div class="container-fluid py-4">
         <div class="card">
             <div class="card-body pt-4 p-3">
-                <form action="{{route('store.cultivo')}}" method="POST" role="form text-left">
+                <form action="" method="POST" role="form text-left">
                     @csrf
                     @if($errors->any())
                         <div class="mt-3  alert alert-primary alert-dismissible fade show" role="alert">
@@ -58,7 +58,8 @@
                             <div class="form-group">
                                 <label for="crop-name" class="form-control-label">{{ __('Nombre del cultivo') }}</label>
                                 <div class="@error('crop.name')border border-danger rounded-3 @enderror">
-                                    <input class="form-control" type="text" placeholder="Nombre del cultivo" id="name" name="name" required>
+                                    <input class="form-control" type="text" placeholder="Nombre del cultivo"
+                                    id="name" name="name" required value="">
                                     @error('name')
                                         <p class="text-danger text-xs mt-2">{{ $message }}</p>
                                     @enderror
@@ -77,15 +78,15 @@
                             </div>
                         </div>
                         <div class="col-md-3">
-                          <div class="form-group">
-                              <label for="high_ph" class="form-control-label">{{ __('pH máximo') }}</label>
-                              <div class="@error('email')border border-danger rounded-3 @enderror">
-                                  <input class="form-control" value="" type="number" step="any" placeholder="Ingresa el pH máximo" id="high_ph" name="high_ph">
-                                      @error('high_ph')
-                                          <p class="text-danger text-xs mt-2">{{ $message }}</p>
-                                      @enderror
-                              </div>
-                          </div>
+                            <div class="form-group">
+                                <label for="high_ph" class="form-control-label">{{ __('pH máximo') }}</label>
+                                <div class="@error('email')border border-danger rounded-3 @enderror">
+                                    <input class="form-control" value="" type="number" step="any" placeholder="Ingresa el pH máximo" id="high_ph" name="high_ph">
+                                        @error('high_ph')
+                                            <p class="text-danger text-xs mt-2">{{ $message }}</p>
+                                        @enderror
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="row">
@@ -101,15 +102,15 @@
                             </div>
                         </div>
                         <div class="col-md-3">
-                          <div class="form-group">
-                              <label for="high_humidity" class="form-control-label">{{ __('Humedad max') }}</label>
-                              <div class="@error('high_humidity')border border-danger rounded-3 @enderror">
-                                  <input class="form-control" type="number" step="any" placeholder="Ingresa la humedad mínima" id="number" name="high_humidity" value="">
-                                      @error('high_humidity')
-                                          <p class="text-danger text-xs mt-2">{{ $message }}</p>
-                                      @enderror
-                              </div>
-                          </div>
+                            <div class="form-group">
+                                <label for="high_humidity" class="form-control-label">{{ __('Humedad max') }}</label>
+                                <div class="@error('high_humidity')border border-danger rounded-3 @enderror">
+                                    <input class="form-control" type="number" step="any" placeholder="Ingresa la humedad mínima" id="number" name="high_humidity" value="">
+                                        @error('high_humidity')
+                                            <p class="text-danger text-xs mt-2">{{ $message }}</p>
+                                        @enderror
+                                </div>
+                            </div>
                         </div>
                         <div class="col-md-3">
                             <div class="form-group">
@@ -120,13 +121,13 @@
                             </div>
                         </div>
                         <div class="col-md-3">
-                          <div class="form-group">
-                              <label for="high_temperature" class="form-control-label">{{ __('Temperatura máximo') }}</label>
-                              <div class="@error('high_temperature') border border-danger rounded-3 @enderror">
-                                  <input class="form-control" type="number" step="any" placeholder="Ingresa la temperatura máxima" id="high_temperature" name="high_temperature" value="">
-                              </div>
-                          </div>
-                      </div>
+                            <div class="form-group">
+                                <label for="high_temperature" class="form-control-label">{{ __('Temperatura máximo') }}</label>
+                                <div class="@error('high_temperature') border border-danger rounded-3 @enderror">
+                                    <input class="form-control" type="number" step="any" placeholder="Ingresa la temperatura máxima" id="high_temperature" name="high_temperature" value="">
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <div class="form-group">
                         <label for="description">{{ 'Descripción' }}</label>
@@ -135,11 +136,55 @@
                         </div>
                     </div>
                     <div class="d-flex justify-content-end">
-                        <button type="submit" class="btn bg-gradient-dark btn-md mt-4 mb-4">{{ 'Guardar' }}</button>
+                        <button type="submit" class="btn bg-gradient-dark btn-md mt-4 mb-4">{{ 'Actualizar' }}</button>
                     </div>
                 </form>
             </div>
         </div>
     </div>
 </div>
+
+<script type="text/javascript">
+    function deleteConfirmation(id) {
+        swal.fire({
+            title: `¿Eliminar cultivo? ${id}`,
+            icon: 'question',
+            text: "Ten en cuenta que este cambio no se puede deshacer",
+            type: "warning",
+            showCancelButton: !0,
+            confirmButtonText: "Sí, eliminar!",
+            cancelButtonText: "No, cancelar!",
+            reverseButtons: !0
+        }).then(function (e) {
+
+            if (e.value === true) {
+                let token = $('meta[name="csrf-token"]').attr('content');
+                let _url = `mi-cultivo/eliminar/${id}`;
+
+                $.ajax({
+                    type: 'POST',
+                    url: _url,
+                    data: {_token: token},
+                    success: function (resp) {
+                        if (resp.success) {
+                            swal.fire("¡Hecho!", resp.message, "success");
+                            location.reload();
+                        } else {
+                            swal.fire("¡Error!", 'Algo salio mal.', "error");
+                        }
+                    },
+                    error: function (resp) {
+                        swal.fire("¡Error!", `algo malio sal ${resp}`, "error");
+                    }
+                });
+
+            } else {
+                e.dismiss;
+            }
+
+        }, function (dismiss) {
+            return false;
+        })
+    }
+</script>
 @endsection
