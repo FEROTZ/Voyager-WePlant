@@ -27,7 +27,7 @@
                     @foreach ($crops as $crop)
                         <div class="overflow-hidden position-relative border-radius-lg bg-cover h-100 m-4 cover-centered" style="background-image: url('../assets/img/vegetables/calabazas.jpg');">
                             <span class="mask bg-gradient-dark"></span>
-                            <a class="icon-move-right" href="/#">
+                            <a class="icon-move-right" href="{{route('show.cultivo', ['id' => $crop->id])}}">
                                 <div class="card-body position-relative z-index-1 d-flex flex-column h-100 p-3">
                                     <h5 class="text-white font-weight-bolder mb-4 pt-2">{{$crop->name}}</h5>
                                     <div class="text-white text-sm font-weight-bold mb-0 mt-auto pt-4" href="javascript:;">
@@ -44,7 +44,7 @@
                             <div class="card-body position-relative z-index-1 d-flex flex-column h-100 p-3 border-primary-dashed">
                                     <div class="p-2 justify-content-center text-center">
                                         <i class="fa fa-plus text-primary mb-1 mt-2"></i>
-                                        <h5 class=" text-primary mb-2 pt-2"> Nuevo huerto </h5>
+                                        <h5 class=" text-primary mb-2 pt-2"> Nuevo cultivo </h5>
                                     </div>
                             </div>
                         </div>

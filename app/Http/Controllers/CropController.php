@@ -47,9 +47,23 @@ class CropController extends Controller
         return redirect()->route('mis-cultivos');
     }
 
-    public function show( $orchard ){
+    public function show( $id ){
 
-        return view('orchards.show', compact('orchard'));
+        $crop = Crop::find($id);
+        // return $crop;
+        return view('cultivos.ver', compact('crop'));
 
+    }
+
+    public function destroy($id)
+    {
+        return 'Prueba de eliminar';
+        $regulation = Regulation::where('crop_id', $id)->delete();
+        $crop = Crop::find($id);
+        $crop->delete();
+        return response()->json([
+            'success' => true,
+            'message' => 'User successfully deleted',
+        ]);
     }
 }
