@@ -35,6 +35,7 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::get('sabias-que', function () {
 		return view('sabias que/sabias-que');
 	})->name('sabias-que');
+	Route::view('prueba', 'sabias que.ver' )->name('sabias-que.show');
 
 	Route::get('profile', function () {
 		return view('profile');
@@ -57,6 +58,7 @@ Route::group(['middleware' => 'auth'], function () {
 
 
 	Route::get('mis-huertos', [OrchardController::class, 'index'])->name('mis-huertos');
+	Route::get('mi-huerto/{id}', [OrchardController::class, 'show'])->name('show.huerto');
 
 
 	Route::get('nuevo-huerto', [OrchardController::class, 'create'])->name('create.huerto');

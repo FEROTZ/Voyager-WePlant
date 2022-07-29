@@ -57,7 +57,6 @@ class CropController extends Controller
 
     public function destroy($id)
     {
-        return 'Prueba de eliminar';
         $regulation = Regulation::where('crop_id', $id)->delete();
         $crop = Crop::find($id);
         $crop->delete();

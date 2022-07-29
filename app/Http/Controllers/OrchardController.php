@@ -40,9 +40,9 @@ class OrchardController extends Controller
 
     }
 
-    public function show( $orchard ){
-
-        return view('orchards.show', compact('orchard'));
-
+    public function show( $id ){
+        // $sensors = Sensor::all()->where('orchard_id', $id);
+        $orchard = Orchard::find($id);
+        return view('huertos.ver', compact('orchard'));
     }
 }
