@@ -24,3 +24,19 @@
 input[type="file"] {
   display: none;
 }
+
+.dropdown-cards{
+  margin-right:21px!important;
+}
+
+.dropdown-cards:before{
+  color: #fff !important;
+  content:"\f0d8"!important;
+  font-family:FontAwesome!important;
+  font-size:22px!important;
+  left: 28px!important;
+  position:absolute!important;
+  right:auto!important;
+  top:0!important;
+  transition:top .35s ease!important;
+}

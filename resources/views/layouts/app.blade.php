@@ -10,6 +10,9 @@
   @endif
 {{-- Sweeet alert and jQuery --}}
   <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  {{-- <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script> --}}
+  {{-- <script src="sweetalert2.all.min.js"></script> --}}
+
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/10.5.1/sweetalert2.min.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/10.5.1/sweetalert2.all.min.js"></script>
 
@@ -73,6 +76,29 @@
   {{-- <script async defer src="https://buttons.github.io/buttons.js"></script> --}}
   <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
   <script src="../assets/js/soft-ui-dashboard.min.js?v=1.0.3"></script>
+  <script>
+    // function checkEdit() {
+    //     console.log("Entro")
+    //     var checkbox = document.getElementById("btncheckEdit"); // Get the checkbox
+    //     var name = document.getElementById("name"); // Get the name field
+    //     if checkbox.checked == true {
+    //         console.log("Entro")
+    //         name.readOnly = true;
+    //         // $('#edit_name').val(element.value);
+    //         // $('#edit_description').val(element.value);
+    //         // $('#edit_low_ph').val(element.value);
+    //         // $('#edit_high_ph').val(element.value);
+    //         // $('#edit_low_humidity').val(element.value);
+    //         // $('#edit_high_humidity').val(element.value);
+    //         // $('#edit_low_temperature').val(element.value);
+    //         // $('#edit_high_temperature').val(element.value);
+    //     }
+    //     else{
+    //         console.log("Entro al else")
+    //         name.readOnly = false;
+    //     }
+    // }
+  </script>
 </body>
 
 </html>

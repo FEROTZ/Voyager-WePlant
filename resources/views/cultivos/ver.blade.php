@@ -18,13 +18,8 @@
                 </div>
                 <div class="col-lg-4 col-md-6 my-sm-auto ms-sm-auto me-sm-0 mx-auto mt-3">
                     <div class="nav-wrapper position-relative end-0 d-flex justify-content-end">
-                        <button type="button" class="btn btn-outline-primary"
-                        title="Eliminar" onclick="deleteConfirmation({{$crop->id}})">
-                            <i class="fas fa-trash"></i>
-                        </button>
-                        <button type="button" class="btn btn-outline-primary" style="margin-left:1rem!important" title="Actualizar">
-                            <i class="fas fa-edit"></i>
-                        </button>
+                        <input type="checkbox" class="btn-check" name="Prueba" id="ChkEdit" autocomplete="off" onclick="checkEdit()">
+                        <label class="btn btn-outline-primary" for="ChkEdit"><i class="fas fa-edit"></i></label>
                     </div>
                 </div>
             </div>
@@ -59,7 +54,7 @@
                                 <label for="crop-name" class="form-control-label">{{ __('Nombre del cultivo') }}</label>
                                 <div class="@error('crop.name')border border-danger rounded-3 @enderror">
                                     <input class="form-control" type="text" placeholder="Nombre del cultivo"
-                                    id="name" name="name" required value="">
+                                    id="name" name="name" required value="Zanahorias" readOnly>
                                     @error('name')
                                         <p class="text-danger text-xs mt-2">{{ $message }}</p>
                                     @enderror
@@ -70,7 +65,8 @@
                             <div class="form-group">
                                 <label for="low_ph" class="form-control-label">{{ __('pH mínimo') }}</label>
                                 <div class="@error('email')border border-danger rounded-3 @enderror">
-                                    <input class="form-control" value="" type="number" step="any" placeholder="Ingresa el pH mínimo" id="low_ph" name="low_ph">
+                                    <input class="form-control" type="number" step="any" placeholder="Ingresa el pH mínimo"
+                                    id="low_ph" name="low_ph" required value="4.3" readOnly>
                                         @error('low_ph')
                                             <p class="text-danger text-xs mt-2">{{ $message }}</p>
                                         @enderror
@@ -81,7 +77,8 @@
                             <div class="form-group">
                                 <label for="high_ph" class="form-control-label">{{ __('pH máximo') }}</label>
                                 <div class="@error('email')border border-danger rounded-3 @enderror">
-                                    <input class="form-control" value="" type="number" step="any" placeholder="Ingresa el pH máximo" id="high_ph" name="high_ph">
+                                    <input class="form-control" type="number" step="any" placeholder="Ingresa el pH máximo"
+                                    id="high_ph" name="high_ph" required value="5.8" readOnly>
                                         @error('high_ph')
                                             <p class="text-danger text-xs mt-2">{{ $message }}</p>
                                         @enderror
@@ -94,7 +91,8 @@
                             <div class="form-group">
                                 <label for="low_humidity" class="form-control-label">{{ __('Humedad min') }}</label>
                                 <div class="@error('low_humidity')border border-danger rounded-3 @enderror">
-                                    <input class="form-control" type="number" step="any" placeholder="Ingresa la humedad minima" id="low_humidity" name="low_humidity" value="">
+                                    <input class="form-control" type="number" step="any" placeholder="Ingresa la humedad minima"
+                                    id="low_humidity" name="low_humidity" required value="38" readOnly>
                                         @error('low_humidity')
                                             <p class="text-danger text-xs mt-2">{{ $message }}</p>
                                         @enderror
@@ -105,7 +103,8 @@
                             <div class="form-group">
                                 <label for="high_humidity" class="form-control-label">{{ __('Humedad max') }}</label>
                                 <div class="@error('high_humidity')border border-danger rounded-3 @enderror">
-                                    <input class="form-control" type="number" step="any" placeholder="Ingresa la humedad mínima" id="number" name="high_humidity" value="">
+                                    <input class="form-control" type="number" step="any" placeholder="Ingresa la humedad máxima"
+                                    id="high_humidity" name="high_humidity" required value="45" readOnly>
                                         @error('high_humidity')
                                             <p class="text-danger text-xs mt-2">{{ $message }}</p>
                                         @enderror
@@ -116,7 +115,8 @@
                             <div class="form-group">
                                 <label for="low_temperature" class="form-control-label">{{ __('Temperatura minima') }}</label>
                                 <div class="@error('low_temperature') border border-danger rounded-3 @enderror">
-                                    <input class="form-control" type="number" step="any" placeholder="Ingresa la temperatura mínima" id="low_temperature" name="low_temperature" value="">
+                                    <input class="form-control" type="number" step="any" placeholder="Ingresa la temperatura mínima"
+                                    id="low_temperature" name="low_temperature"`required value="27" readOnly>
                                 </div>
                             </div>
                         </div>
@@ -124,7 +124,8 @@
                             <div class="form-group">
                                 <label for="high_temperature" class="form-control-label">{{ __('Temperatura máximo') }}</label>
                                 <div class="@error('high_temperature') border border-danger rounded-3 @enderror">
-                                    <input class="form-control" type="number" step="any" placeholder="Ingresa la temperatura máxima" id="high_temperature" name="high_temperature" value="">
+                                    <input class="form-control" type="number" step="any" placeholder="Ingresa la temperatura máxima"
+                                    id="high_temperature" name="high_temperature" required value="32" readOnly>
                                 </div>
                             </div>
                         </div>
@@ -132,11 +133,12 @@
                     <div class="form-group">
                         <label for="description">{{ 'Descripción' }}</label>
                         <div class="@error('description')border border-danger rounded-3 @enderror">
-                            <textarea class="form-control" id="description" rows="3" placeholder="Dinos algo de tu cultivo" name="description"></textarea>
+                            <textarea class="form-control" id="description" rows="3" placeholder="Dinos algo de tu cultivo"
+                            name="description" readOnly>Descripción de prueba</textarea>
                         </div>
                     </div>
                     <div class="d-flex justify-content-end">
-                        <button type="submit" class="btn bg-gradient-dark btn-md mt-4 mb-4">{{ 'Actualizar' }}</button>
+                        <button type="submit" id="submit" class="btn bg-gradient-dark btn-md mt-4 mb-4" disabled>{{ 'Actualizar' }}</button>
                     </div>
                 </form>
             </div>
@@ -144,47 +146,44 @@
     </div>
 </div>
 
-<script type="text/javascript">
-    function deleteConfirmation(id) {
-        swal.fire({
-            title: `¿Eliminar cultivo? ${id}`,
-            icon: 'question',
-            text: "Ten en cuenta que este cambio no se puede deshacer",
-            type: "warning",
-            showCancelButton: !0,
-            confirmButtonText: "Sí, eliminar!",
-            cancelButtonText: "No, cancelar!",
-            reverseButtons: !0
-        }).then(function (e) {
+<script>
 
-            if (e.value === true) {
-                let token = $('meta[name="csrf-token"]').attr('content');
-                let _url = `mi-cultivo/eliminar/${id}`;
+    function checkEdit(){
+        console.log("Entro esta chingadera")
+        var checkbox = document.getElementById("ChkEdit");	// Get the checkbox
+        var name = document.getElementById("name"); // Get the name field
+        var lowpH = document.getElementById("low_ph"); // Get the lowpH field
+        var highpH = document.getElementById("high_ph"); // Get the highpH field
+        var lowHumidity = document.getElementById("low_humidity"); // Get the lowHumidity field
+        var highHumidity = document.getElementById("high_humidity"); // Get the highHumidity field
+        var lowTemperature = document.getElementById("low_temperature"); // Get the lowTemperature field
+        var highTemperature = document.getElementById("high_temperature"); // Get the highTemperature field
+        var description = document.getElementById("description"); // Get the description field
+        var submit = document.getElementById("submit"); // Get the submit button
 
-                $.ajax({
-                    type: 'POST',
-                    url: _url,
-                    data: {_token: token},
-                    success: function (resp) {
-                        if (resp.success) {
-                            swal.fire("¡Hecho!", resp.message, "success");
-                            location.reload();
-                        } else {
-                            swal.fire("¡Error!", 'Algo salio mal.', "error");
-                        }
-                    },
-                    error: function (resp) {
-                        swal.fire("¡Error!", `algo malio sal ${resp}`, "error");
-                    }
-                });
-
-            } else {
-                e.dismiss;
-            }
-
-        }, function (dismiss) {
-            return false;
-        })
+        if (checkbox.checked) {
+            console.log("Checado alv")
+            name.readOnly = false;
+            lowpH.readOnly = false;
+            highpH.readOnly = false;
+            lowHumidity.readOnly = false;
+            highHumidity.readOnly = false;
+            lowTemperature.readOnly = false;
+            highTemperature.readOnly = false;
+            description.readOnly = false;
+            submit.disabled = false;
+        } else {
+            console.log("No checado alv")
+            name.readOnly = true;
+            lowpH.readOnly = true;
+            highpH.readOnly = true;
+            lowHumidity.readOnly = true;
+            highHumidity.readOnly = true;
+            lowTemperature.readOnly = true;
+            highTemperature.readOnly = true;
+            description.readOnly = true;
+            submit.disabled = true;
+        }
     }
 </script>
 @endsection
