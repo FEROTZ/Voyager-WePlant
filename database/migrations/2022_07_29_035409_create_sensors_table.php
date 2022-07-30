@@ -13,15 +13,15 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('orchards', function (Blueprint $table) {
+        Schema::create('sensors', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('image_url')->default('user.png');
-            $table->string('location');
+            $table->float('ph', 6, 2);
+            $table->float('humidity', 6, 2);
+            $table->float('temperature', 6, 2);
             $table->timestamps();
-            $table->string('serial');
-            $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->unsignedBigInteger('orchard_id')->unique();
+            $table->foreign('orchard_id')->references('id')->on('orchards')->onDelete('cascade');
         });
     }
 
@@ -32,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('orchards');
+        Schema::dropIfExists('sensors');
     }
 };

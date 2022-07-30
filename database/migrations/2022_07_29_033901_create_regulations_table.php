@@ -22,7 +22,8 @@ return new class extends Migration
             $table->float('high_humidity', 6, 2);
             $table->float('low_temperature', 6, 2);
             $table->float('high_temperature', 6, 2);
-            $table->timestamps();
+            $table->unsignedBigInteger('crop_id')->unique();
+            $table->foreign('crop_id')->references('id')->on('crops')->onDelete('cascade');
         });
     }
 

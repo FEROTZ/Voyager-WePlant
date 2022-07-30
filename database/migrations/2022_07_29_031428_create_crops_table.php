@@ -13,9 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('crops', function (Blueprint $table) {
+        Schema::create('crops', function (Blueprint $table) {
+            $table->id();
+            $table->string('name');
+            $table->string('photo')->default('crop.png');
+            $table->longText('description')->nullable();
+            $table->timestamps();
             $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 
@@ -26,8 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('crops', function (Blueprint $table) {
-            //
-        });
+        Schema::dropIfExists('crops');
     }
 };

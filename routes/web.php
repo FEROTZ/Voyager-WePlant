@@ -2,8 +2,8 @@
 
 use App\Http\Controllers\ChangePasswordController;
 use App\Http\Controllers\HomeController;
-/* Código agregado por Manuel */use App\Http\Controllers\OrchardController;
-/* Código agregado por Manuel */use App\Http\Controllers\CropController;
+use App\Http\Controllers\OrchardController;
+use App\Http\Controllers\CropController;
 use App\Http\Controllers\InfoUserController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\ResetController;
@@ -28,9 +28,7 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::get('/', [HomeController::class, 'home']);
 
-	Route::get('Dashboard', function () {
-		return view('Dashboard');
-	})->name('Dashboard');
+	Route::get('Dashboard', [HomeController::class, 'index'])->name('Dashboard');
 
 	Route::get('sabias-que', function () {
 		return view('sabias que/sabias-que');
@@ -46,13 +44,13 @@ Route::group(['middleware' => 'auth'], function () {
 	})->name('dashexample');
 
 	Route::get('mis-cultivos', [CropController::class, 'index'])->name('mis-cultivos');
-	Route::get('mi-cultivo/{id}', [CropController::class, 'show'])->name('show.cultivo');
+	Route::get('mi-cultivo/{crop}', [CropController::class, 'show'])->name('show.cultivo');
 
 	Route::get('nuevo-cultivo', [CropController::class, 'create'])->name('create.cultivo');
 	Route::post('nuevo-cultivo', [CropController::class, 'store'])->name('store.cultivo');
 
-	Route::post('mi-cultivo/actualizar/{id}', [CropController::class, 'update'])->name('update.cultivo');
-	Route::post('mi-cultivo/eliminar/{id}', [CropController::class, 'destroy'])->name('destroy.cultivo');
+	Route::put('mi-cultivo/actualizar/{crop}', [CropController::class, 'edit'])->name('edit.cultivo');
+	Route::delete('mi-cultivo/eliminar/{crop}', [CropController::class, 'destroy'])->name('destroy.cultivo');
 
 
 
