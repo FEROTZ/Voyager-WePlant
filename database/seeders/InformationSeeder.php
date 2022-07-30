@@ -73,51 +73,6 @@ class InformationSeeder extends Seeder
                 'created_at' => now(),
                 'updated_at' => now()
             ],
-            [
-                'id' => 5,
-                'title' => '¿Cómo cuidar las flores de exterior en verano?',
-                'description' => 'Tenemos que tener especial atención con el riego de nuestras flores en verano, ya que, las altas temperaturas y la sequedad del ambiente las hacen sufrir más si no las regamos suficiente, cuanta más calor haga más las tendremos que regar.
-
-                Os contamos un truco: para evitar que las hojas se quemen y hacer que la tierra esté más tiempo húmeda es mejor regar a primera hora de la mañana o a última hora del día, se tienen que evitar las horas centrales, que es cuando las temperaturas son más altas.
-
-                Si hablamos de la forma de regar las flores en verano, es mucho mejor para ellas no regar tan frecuentemente pero hacerlo en profundidad, que regarlas cada día de una forma superficial. Si las regamos de forma más profunda hacemos que las raíces se desarrollen en profundidad y estarán mejor.
-
-                ¡Pero cuidado con el agua! Se tiene que evitar a toda costa el agua calcárea. Si la de vuestra ciudad tiene mucha cal una cosa que soluciona este problema es echar un chorro de vinagre en el agua y estará lista para las flores.',
-
-                'photo' => 'image1.jpg',
-                'created_at' => now(),
-                'updated_at' => now()
-            ],
-            [
-                'id' => 6,
-                'title' => '¿Cuántas horas de oscuridad necesitan tus plantas?',
-                'description' => 'Para la fase de crecimiento la marihuana es necesario saber bien cuántas horas de luz necesita la marihuana. La respuesta varía entre las 16 y 20 horas de luz.
-
-                Nosotros recomendamos darle 18 horas de luz y 6 horas de oscuridad. También la podríamos tener a 20/4 en cuyo caso crecerá algo más rápido; o tenerla a 16/8 en cuyo caso crecerá algo menos pero bajaremos la cuenta de la luz.
-
-                Es muy importante no exponer la planta a excesos de luz, tanto en cantidad como en intensidad.
-
-                La marihuana, como un ser vivo, realiza ciertos procesos durante el día y otros procesos internos durante la noche que son necesarios para el desarrollo sano de la planta. Por ello es muy importante tener claro cuántas horas de luz necesita la marihuana.
-
-                Por lo tanto, al cultivar marihuana, recomendamos darle al menos 4 horas de oscuridad para que pueda realizar sus procesos nocturnos con normalidad. Los resultados de una cosecha apresurada no son los mejores.
-
-                Tampoco es recomendable darle más oscuridad de la necesaria. En la etapa de crecimiento, menos de 16 horas de luz podría hacer florecer la planta.',
-
-                'photo' => 'image2.jpg',
-                'created_at' => now(),
-                'updated_at' => now()
-            ],
-            [
-                'id' => 7,
-                'title' => '¿El agua azucarada es buena para tus plantas?',
-                'description' => 'La única excepción en la que tiene sentido usar agua azucarada es agregarla a las flores cortadas para evitar que se marchiten. Esta es la razón por la cual los floristas a menudo proporcionan una pequeña bolsita de alimento vegetal a base de azúcar para agregar al florero.
-
-                A diferencia de las raíces de las plantas, los tallos de las flores cortadas pueden absorber el azúcar, lo que revive los carbohidratos. El azúcar envía la señal falsa a las flores de que la planta está viva y bien y debe seguir floreciendo. Este efecto es meramente temporal y eventualmente las flores mueren.',
-
-                'photo' => 'image3.jpg',
-                'created_at' => now(),
-                'updated_at' => now()
-            ],
         ]);
     }
 }
