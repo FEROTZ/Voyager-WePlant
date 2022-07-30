@@ -3,8 +3,11 @@
 @section('content')
 
 <div>
+    @php
+        $photo = $orchard->crop->photo;
+    @endphp
     <div class="container-fluid">
-        <div class="page-header min-height-300 border-radius-xl mt-4 cover-centered" style="background-image:url('');">
+        <div class="page-header min-height-300 border-radius-xl mt-4 cover-centered" style="background-image: url('{{asset("$photo")}}');">
             <span class="mask bg-gradient-primary opacity-6"></span>
         </div>
         <div class="card card-body blur shadow-blur mx-4 mt-n6">
@@ -28,8 +31,11 @@
     <div class="container-fluid py-4">
         <div class="card">
             <div class="card-body pt-4 p-3">
-                <form action="{{route('store.huerto')}}" method="POST" role="form text-left">
+                <form action="{{route('edit.huerto', $orchard)}}" method="POST" role="form text-left">
+
                     @csrf
+                    @method('put')
+
                     @if($errors->any())
                         <div class="mt-3  alert alert-primary alert-dismissible fade show" role="alert">
                             <span class="alert-text text-white">
@@ -48,13 +54,14 @@
                             </button>
                         </div>
                     @endif
+
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="serial" class="form-control-label">{{ __('No. serie del WePlant') }}</label>
                                 <div class="@error('orchard.serial')border border-danger rounded-3 @enderror">
                                     <input class="form-control" type="text" placeholder="Ingresa el numero de serie del dispositivo WePlant"
-                                    id="serial" name="serial" required value="WePlantas564d1-35" readOnly>
+                                    id="serial" name="serial" required value="{{$orchard->serial}}" readOnly>
                                     @error('serial')
                                       <p class="text-danger text-xs mt-2">{{ $message }}</p>
                                     @enderror
@@ -66,10 +73,10 @@
                               <label for="crop" class="form-control-label">{{ __('Cultivo a plantar') }}</label>
                               <div class="@error('crop')border border-danger rounded-3 @enderror">
                                 <select class="form-select" id="crop" name="crop" aria-label="Default select example" required disabled>
-                                    <option selected>Selecciona un cultivo</option>
-                                    <option selected>Prueba 1</option>
-                                    <option selected>Prueba 2</option>
-                                    <option selected>Prueba 3</option>
+                                    <option value= "{{$orchard->crop->id}}">{{$orchard->name}}</option>
+                                    @foreach ($crops as $crop)
+                                    <option value="{{$crop->id}}">{{$crop->name}}</option>
+                                    @endforeach
                                 </select>
                                   @error('crop')
                                       <p class="text-danger text-xs mt-2">{{ $message }}</p>
@@ -84,7 +91,7 @@
                                 <label for="location" class="form-control-label">{{ __('Lugar en el que se encuentra el huerto') }}</label>
                                 <div class="@error('humidity.low')border border-danger rounded-3 @enderror">
                                     <input class="form-control" type="text" placeholder="Oficina, casa, jardín abuela"
-                                    id="location" name="location" value="Oficina" readOnly>
+                                    id="location" name="location" value="{{$orchard->location}}" readOnly>
                                         @error('location')
                                             <p class="text-danger text-xs mt-2">{{ $message }}</p>
                                         @enderror

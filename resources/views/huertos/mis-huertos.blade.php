@@ -25,7 +25,7 @@
                     @foreach ($orchards as $orchard)
                         <div class="overflow-hidden position-relative border-radius-lg bg-cover h-100 m-4" style="background-image: url('../assets/img/vegetables/frijoles.jpg');">
                             <span class="mask bg-gradient-dark"></span>
-                            <a class="icon-move-right" href="{{route('show.huerto', ['id' => $orchard->id])}}">
+                            <a class="icon-move-right" href="{{route('show.huerto', $orchard)}}">
                                 <div class="card-body position-relative z-index-1 d-flex flex-column h-100 p-3">
                                     <h5 class="text-white font-weight-bolder mb-4 pt-2">{{$orchard->name}}</h5>
                                     <div class="text-white text-sm font-weight-bold mb-0 mt-auto pt-4" href="javascript:;">

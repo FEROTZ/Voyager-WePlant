@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ChangePasswordController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\InformationController;
 use App\Http\Controllers\OrchardController;
 use App\Http\Controllers\CropController;
 use App\Http\Controllers\InfoUserController;
@@ -30,10 +31,8 @@ Route::group(['middleware' => 'auth'], function () {
 
 	Route::get('Dashboard', [HomeController::class, 'index'])->name('Dashboard');
 
-	Route::get('sabias-que', function () {
-		return view('sabias que/sabias-que');
-	})->name('sabias-que');
-	Route::view('prueba', 'sabias que.ver' )->name('sabias-que.show');
+    Route::get('sabias-que', [InformationController::class, 'index'])->name('sabias-que');
+    Route::get('sabias-que/{information}', [InformationController::class, 'show'])->name('sabias-que.show');
 
 	Route::get('profile', function () {
 		return view('profile');
@@ -56,11 +55,13 @@ Route::group(['middleware' => 'auth'], function () {
 
 
 	Route::get('mis-huertos', [OrchardController::class, 'index'])->name('mis-huertos');
-	Route::get('mi-huerto/{id}', [OrchardController::class, 'show'])->name('show.huerto');
+	Route::get('mi-huerto/{orchard}', [OrchardController::class, 'show'])->name('show.huerto');
 
 
 	Route::get('nuevo-huerto', [OrchardController::class, 'create'])->name('create.huerto');
     Route::post('nuevo-huerto', [OrchardController::class, 'store'])->name('store.huerto');
+
+    Route::put('mi-huerto/{orchard}/actualizar', [OrchardController::class, 'edit'])->name('edit.huerto');
 
 
     Route::get('static-sign-in', function () {

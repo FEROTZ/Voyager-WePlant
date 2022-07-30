@@ -32,6 +32,7 @@
                                             <h5 class="text-white font-weight-bolder mb-4 pt-2">{{$crop->name}}</h5>
                                         </div>
                                         <div class="col-lg-6 col-5 text-end">
+
                                             <form action="{{route('destroy.cultivo', $crop)}}" method="post" id="deleteForm" name="deleteForm">
 
                                                 @csrf
@@ -51,6 +52,7 @@
                                                     </ul>
                                                 </div>
                                             </form>
+
                                         </div>
                                     </div>
                                     <div class="text-white text-sm font-weight-bold mb-0 mt-auto pt-4" href="javascript:;">
