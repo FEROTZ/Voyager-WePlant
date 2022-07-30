@@ -1,5 +1,15 @@
 @extends('layouts.user_type.auth')
 
+@section('title')
+    <title>
+        WePlant | Perfil de {{ auth()->user()->name }}
+    </title>
+@endsection
+
+@section('page-title')
+    Mi Cultivo / Perfil de {{ auth()->user()->name }}
+@endsection
+
 @section('content')
 
 <div>

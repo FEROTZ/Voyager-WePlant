@@ -56,7 +56,7 @@
           <span class="nav-link-text ms-1">¿Sabías que?</span>
         </a>
       </li>
-      <li class="nav-item mt-3">
+      {{-- <li class="nav-item mt-3">
         <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">VAMOS A USAR COMPONENTES DE AQUÍ</h6>
       </li>
       <li class="nav-item">
@@ -100,7 +100,7 @@
           </div>
           <span class="nav-link-text ms-1">Dashboard de ejemplo</span>
         </a>
-      </li>
+      </li> --}}
     </ul>
   </div>
 </aside>

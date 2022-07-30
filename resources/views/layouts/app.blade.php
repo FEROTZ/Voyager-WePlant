@@ -18,9 +18,15 @@
 
   <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
   <link rel="icon" type="image/png" href="../assets/img/small-logos/logo-icon-light.png">
-  <title>
+  @yield('title')
+  @sectionMissing('title')
+      <title>
+        WePlant | {{ str_replace('-', '      ', Request::path()) }}
+      </title>
+  @endif
+  {{-- <title>
     WePlant | {{ str_replace('-', '      ', Request::path()) }}
-  </title>
+  </title> --}}
   <!--     Fonts and icons     -->
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -77,27 +83,6 @@
   <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
   <script src="../assets/js/soft-ui-dashboard.min.js?v=1.0.3"></script>
   <script>
-    // function checkEdit() {
-    //     console.log("Entro")
-    //     var checkbox = document.getElementById("btncheckEdit"); // Get the checkbox
-    //     var name = document.getElementById("name"); // Get the name field
-    //     if checkbox.checked == true {
-    //         console.log("Entro")
-    //         name.readOnly = true;
-    //         // $('#edit_name').val(element.value);
-    //         // $('#edit_description').val(element.value);
-    //         // $('#edit_low_ph').val(element.value);
-    //         // $('#edit_high_ph').val(element.value);
-    //         // $('#edit_low_humidity').val(element.value);
-    //         // $('#edit_high_humidity').val(element.value);
-    //         // $('#edit_low_temperature').val(element.value);
-    //         // $('#edit_high_temperature').val(element.value);
-    //     }
-    //     else{
-    //         console.log("Entro al else")
-    //         name.readOnly = false;
-    //     }
-    // }
   </script>
 </body>
 

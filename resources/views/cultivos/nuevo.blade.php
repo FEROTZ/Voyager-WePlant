@@ -28,7 +28,7 @@
                                         <div class="d-flex justify-content-end">
                                             <label for="file" class="custom-file-upload btn bg-gradient-light btn-md mt-4 mb-4">
                                                 {{ __('Editar imagen') }}
-                                                <i class="fas fa-edit ms-2"></i>
+                                                <i class="fas fa-camera ms-2"></i>
                                             </label>
                                             <input id="file" type="file" name="photo" accept="image/*"/>
 
@@ -59,7 +59,7 @@
                         </div>
                     @endif
 
-                    <div class="row">
+                    <div class="row mt-4">
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="crop-name" class="form-control-label">{{ __('Nombre del cultivo') }}</label>

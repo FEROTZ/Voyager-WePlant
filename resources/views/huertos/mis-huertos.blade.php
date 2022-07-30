@@ -13,12 +13,6 @@
                                     Mis huertos
                                 </h5>
                         </div>
-                        <div class="col-lg-6 col-6">
-                            <div class="input-group">
-                                <span class="input-group-text text-body"><i class="fas fa-search" aria-hidden="true"></i></span>
-                                <input type="text" class="form-control" placeholder="Buscar...">
-                            </div>
-                    </div>
                     </div>
                 </div>
                 <div class="card-body px-0 pt-0 pb-2">

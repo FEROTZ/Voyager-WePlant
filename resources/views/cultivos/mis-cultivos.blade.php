@@ -14,17 +14,11 @@
                                     Mis cultivos
                                 </h5>
                         </div>
-                        <div class="col-lg-6 col-6">
-                            <div class="input-group">
-                                <span class="input-group-text text-body"><i class="fas fa-search" aria-hidden="true"></i></span>
-                                <input type="text" class="form-control" placeholder="Buscar...">
-                            </div>
-                    </div>
                     </div>
                 </div>
                 <div class="card-body px-0 pt-0 pb-2">
                     @foreach ($crops as $crop)
-                        <div class="overflow-hidden position-relative border-radius-lg bg-cover h-100 m-4 cover-centered" style="background-image: url('../assets/img/vegetables/calabazas.jpg');">
+                        <div class="overflow-hidden position-relative border-radius-lg bg-cover h-100 m-4 cover-centered" style="background-image: url('{{$crop->photo}}');">
                             <span class="mask bg-gradient-dark"></span>
                                 <div class="card-body position-relative z-index-1 d-flex flex-column h-100 p-3">
                                     <div class="row">
@@ -81,7 +75,6 @@
     </div>
     <script>
         function deleteConfirmation() {
-            console.log("Entró")
         swal.fire({
             title: `¿Eliminar cultivo?`,
             icon: 'question',
@@ -91,39 +84,15 @@
             cancelButtonText: "No, cancelar!",
             reverseButtons: !0
         }).then(function (e) {
-
             if (e.value === true) {
-
                 deleteForm.submit();
-
-                /* let token = $('meta[name="csrf-token"]').attr('content');
-                let _url = `/mi-cultivo/eliminar/${id}`;
-
-                $.ajax({
-                    type: 'POST',
-                    url: _url,
-                    data: {_token: token},
-                    success: function (resp) {
-                        if (resp.success) {
-                            swal.fire("Done!", resp.message, "success");
-                            location.reload();
-                        } else {
-                            swal.fire("Error!", 'Sumething went wrong.', "error");
-                        }
-                    },
-                    error: function (resp) {
-                        swal.fire("Error!", 'Sumething went wrong.', "error");
-                    }
-                }); */
-
             } else {
                 e.dismiss;
             }
-
             }, function (dismiss) {
-            return false;
+                return false;
             })
-    }
+        }
     </script>
 </div>
 

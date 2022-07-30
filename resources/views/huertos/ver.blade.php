@@ -1,5 +1,15 @@
 @extends('layouts.user_type.auth')
 
+@section('title')
+    <title>
+        WePlant | {{ $orchard->serial }} - {{ $orchard->name }}
+    </title>
+@endsection
+
+@section('page-title')
+    Mi huerto / {{ $orchard->serial }} - {{ $orchard->name }}
+@endsection
+
 @section('content')
 
 <div>
