@@ -1,5 +1,15 @@
 @extends('layouts.user_type.auth')
 
+@section('title')
+    <title>
+        WePlant | {{Str::limit($information->title, 15, '...')}}
+    </title>
+@endsection
+
+@section('page-title')
+    Mi Cultivo / {{Str::limit($information->title, 150, '...')}}
+@endsection
+
 @section('content')
 
 <div>
@@ -14,7 +24,7 @@
                         <h5 class="mb-1">
                             {{$information->title}}
                         </h5>
-                        <p class="mb-0 font-weight-bold text-sm">
+                        <p class="mb-0 font-weight-bold text-sm article-font">
                             {{$information->updated_at->format('d/m/Y H:i')}} | WePlant
                         </p>
                     </div>
@@ -24,7 +34,7 @@
     </div>
     <div class="container-fluid py-4">
         <div class="card">
-            <div class="card-body pt-4 p-3">
+            <div class="card-body pt-4 p-3 article-font">
                 {{$information->description}}
             </div>
         </div>
