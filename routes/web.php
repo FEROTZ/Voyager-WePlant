@@ -2,6 +2,9 @@
 
 use App\Http\Controllers\ChangePasswordController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\InformationController;
+use App\Http\Controllers\OrchardController;
+use App\Http\Controllers\CropController;
 use App\Http\Controllers\InfoUserController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\ResetController;
@@ -25,33 +28,41 @@ use Illuminate\Support\Facades\Route;
 Route::group(['middleware' => 'auth'], function () {
 
     Route::get('/', [HomeController::class, 'home']);
-	Route::get('dashboard', function () {
-		return view('dashboard');
-	})->name('dashboard');
 
-	Route::get('billing', function () {
-		return view('billing');
-	})->name('billing');
+	Route::get('Dashboard', [HomeController::class, 'index'])->name('Dashboard');
+
+    Route::get('sabias-que', [InformationController::class, 'index'])->name('sabias-que');
+    Route::get('sabias-que/{information}', [InformationController::class, 'show'])->name('sabias-que.show');
 
 	Route::get('profile', function () {
 		return view('profile');
 	})->name('profile');
 
-	Route::get('rtl', function () {
-		return view('rtl');
-	})->name('rtl');
+	Route::get('dashexample', function () {
+		return view('dashboard-example');
+	})->name('dashexample');
 
-	Route::get('user-management', function () {
-		return view('laravel-examples/user-management');
-	})->name('user-management');
+	Route::get('mis-cultivos', [CropController::class, 'index'])->name('mis-cultivos');
+	Route::get('mi-cultivo/{crop}', [CropController::class, 'show'])->name('show.cultivo');
 
-	Route::get('tables', function () {
-		return view('tables');
-	})->name('tables');
+	Route::get('nuevo-cultivo', [CropController::class, 'create'])->name('create.cultivo');
+	Route::post('nuevo-cultivo', [CropController::class, 'store'])->name('store.cultivo');
 
-    Route::get('virtual-reality', function () {
-		return view('virtual-reality');
-	})->name('virtual-reality');
+	Route::put('mi-cultivo/actualizar/{crop}', [CropController::class, 'edit'])->name('edit.cultivo');
+	Route::delete('mi-cultivo/eliminar/{crop}', [CropController::class, 'destroy'])->name('destroy.cultivo');
+
+
+
+
+	Route::get('mis-huertos', [OrchardController::class, 'index'])->name('mis-huertos');
+	Route::get('mi-huerto/{orchard}', [OrchardController::class, 'show'])->name('show.huerto');
+
+
+	Route::get('nuevo-huerto', [OrchardController::class, 'create'])->name('create.huerto');
+    Route::post('nuevo-huerto', [OrchardController::class, 'store'])->name('store.huerto');
+
+    Route::put('mi-huerto/{orchard}/actualizar', [OrchardController::class, 'edit'])->name('edit.huerto');
+
 
     Route::get('static-sign-in', function () {
 		return view('static-sign-in');

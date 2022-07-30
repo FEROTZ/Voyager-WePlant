@@ -1,26 +1,6 @@
-<!--
-=========================================================
-* Soft UI Dashboard - v1.0.3
-=========================================================
-
-* Product Page: https://www.creative-tim.com/product/soft-ui-dashboard
-* Copyright 2021 Creative Tim (https://www.creative-tim.com)
-* Licensed under MIT (https://www.creative-tim.com/license)
-
-* Coded by Creative Tim
-
-=========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
--->
 <!DOCTYPE html>
 
-@if (\Request::is('rtl'))
-  <html dir="rtl" lang="ar">
-@else
-  <html lang="en" >
-@endif
-
+<html lang="es" >
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -28,14 +8,24 @@
   @if (env('IS_DEMO'))
       <x-demo-metas></x-demo-metas>
   @endif
+{{-- Sweeet alert and jQuery --}}
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  {{-- <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script> --}}
+  {{-- <script src="sweetalert2.all.min.js"></script> --}}
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/10.5.1/sweetalert2.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/10.5.1/sweetalert2.all.min.js"></script>
 
   <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
-  <link rel="icon" type="image/png" href="../assets/img/favicon.png">
+  <link rel="icon" type="image/png" href="../assets/img/small-logos/logo-icon-light.png">
   <title>
-    Soft UI Dashboard by Creative Tim
+    WePlant | {{ str_replace('-', '      ', Request::path()) }}
   </title>
   <!--     Fonts and icons     -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
   <!-- Nucleo Icons -->
   <link href="../assets/css/nucleo-icons.css" rel="stylesheet" />
   <link href="../assets/css/nucleo-svg.css" rel="stylesheet" />
@@ -43,10 +33,12 @@
   <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
   <link href="../assets/css/nucleo-svg.css" rel="stylesheet" />
   <!-- CSS Files -->
+  <link href="../css/app.css" rel="stylesheet" />
   <link id="pagestyle" href="../assets/css/soft-ui-dashboard.css?v=1.0.3" rel="stylesheet" />
+  {{-- <link id="pagestyle" href="../css/soft-ui-dashboard.css?v=1.0.3" rel="stylesheet" /> --}}
 </head>
 
-<body class="g-sidenav-show  bg-gray-100 {{ (\Request::is('rtl') ? 'rtl' : (Request::is('virtual-reality') ? 'virtual-reality' : '')) }} ">
+<body class="g-sidenav-show  bg-gray-100">
   @auth
     @yield('auth')
   @endauth
@@ -69,7 +61,6 @@
   <script src="../assets/js/plugins/smooth-scrollbar.min.js"></script>
   <script src="../assets/js/plugins/fullcalendar.min.js"></script>
   <script src="../assets/js/plugins/chartjs.min.js"></script>
-  @stack('rtl')
   @stack('dashboard')
   <script>
     var win = navigator.platform.indexOf('Win') > -1;
@@ -82,9 +73,32 @@
   </script>
 
   <!-- Github buttons -->
-  <script async defer src="https://buttons.github.io/buttons.js"></script>
+  {{-- <script async defer src="https://buttons.github.io/buttons.js"></script> --}}
   <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
   <script src="../assets/js/soft-ui-dashboard.min.js?v=1.0.3"></script>
+  <script>
+    // function checkEdit() {
+    //     console.log("Entro")
+    //     var checkbox = document.getElementById("btncheckEdit"); // Get the checkbox
+    //     var name = document.getElementById("name"); // Get the name field
+    //     if checkbox.checked == true {
+    //         console.log("Entro")
+    //         name.readOnly = true;
+    //         // $('#edit_name').val(element.value);
+    //         // $('#edit_description').val(element.value);
+    //         // $('#edit_low_ph').val(element.value);
+    //         // $('#edit_high_ph').val(element.value);
+    //         // $('#edit_low_humidity').val(element.value);
+    //         // $('#edit_high_humidity').val(element.value);
+    //         // $('#edit_low_temperature').val(element.value);
+    //         // $('#edit_high_temperature').val(element.value);
+    //     }
+    //     else{
+    //         console.log("Entro al else")
+    //         name.readOnly = false;
+    //     }
+    // }
+  </script>
 </body>
 
 </html>
