@@ -20,7 +20,7 @@
         <div class="overflow-hidden position-relative border-radius-lg bg-cover h-100 mb-2" style="background-image: url('../assets/img/vegetables/zanahorias.jpg');">
           <span class="mask bg-gradient-dark"></span>
           <div class="card-body position-relative z-index-1 d-flex flex-column h-100 p-3">
-            <h5 class="text-white font-weight-bolder mb-4 pt-2">Zanahoria</h5>
+            <h5 class="text-white font-weight-bolder mb-4 pt-2">Zanahoriasssssss</h5>
             <a class="text-white text-sm font-weight-bold mb-0 icon-move-right mt-auto pt-4" href="javascript:;">
               Acceder
               <i class="fas fa-arrow-right text-sm ms-1" aria-hidden="true"></i>
@@ -96,60 +96,38 @@
           </div>
         </div>
         <div class="card-body">
-          <div class="card mb-3">
-            <div class="overflow-hidden position-relative border-radius-lg bg-cover h-100">
-              <span class="mask bg-gradient-light"></span>
-              <div class="card-body position-relative z-index-1 d-flex flex-column h-100 p-3">
-                <div class="row">
-                  <div class="col-lg-6">
-                    <div class="d-flex flex-column h-100">
-                      <p class="mb-1 pt-2 text-bold">13/07/2022</p>
-                      <h5 class="font-weight-bolder">Morbi eu nulla lacus</h5>
-                      <p class="mb-5">Etiam feugiat enim in dui gravida, vitae pretium neque ultricies. Duis venenatis a metus non lacinia...</p>
-                      <a class="text-body text-sm font-weight-bold mb-0 icon-move-right mt-auto" href="javascript:;">
-                        Aprender más
-                        <i class="fas fa-arrow-right text-sm ms-1" aria-hidden="true"></i>
-                      </a>
+
+            @foreach ($informations as $information)
+                <div class="card mb-3">
+                    <div class="overflow-hidden position-relative border-radius-lg bg-cover h-100">
+                        <span class="mask bg-gradient-light"></span>
+                        <div class="card-body position-relative z-index-1 d-flex flex-column h-100 p-3">
+                            <div class="row">
+                            <div class="col-lg-6">
+                                <div class="d-flex flex-column h-100">
+                                <p class="mb-1 pt-2 text-bold">{{$information->updated_at->format('d/m/Y H:i')}}</p>
+                                <h5 class="font-weight-bolder">{{$information->title}}</h5>
+                                <p class="mb-5">{{Str::limit($information->description, 150, '...')}}</p>
+                                <a class="text-body text-sm font-weight-bold mb-0 icon-move-right mt-auto" href="javascript:;">
+                                    Aprender más
+                                    <i class="fas fa-arrow-right text-sm ms-1" aria-hidden="true"></i>
+                                </a>
+                                </div>
+                            </div>
+                            <div class="col-lg-5 ms-auto text-center mt-5 mt-lg-0">
+                                <div class="bg-gradient-primary border-radius-lg h-100">
+                                <div class="position-relative d-flex align-items-center justify-content-center h-100">
+                                    <img class="w-100 position-relative z-index-2 border-radius-lg" src="{{asset("storage/app/public/images/$information->photo")}}" alt="rocket">
+                                    {{-- ../assets/img/curved-images/field-farm.jpg --}}
+                                </div>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
                     </div>
-                  </div>
-                  <div class="col-lg-5 ms-auto text-center mt-5 mt-lg-0">
-                    <div class="bg-gradient-primary border-radius-lg h-100">
-                      <div class="position-relative d-flex align-items-center justify-content-center h-100">
-                        <img class="w-100 position-relative z-index-2 border-radius-lg" src="../assets/img/curved-images/field-farm.jpg" alt="rocket">
-                      </div>
-                    </div>
-                  </div>
                 </div>
-              </div>
-            </div>
-          </div>
-          <div class="card mb-3">
-            <div class="overflow-hidden position-relative border-radius-lg bg-cover h-100">
-              <span class="mask bg-gradient-light"></span>
-              <div class="card-body position-relative z-index-1 d-flex flex-column h-100 p-3">
-                <div class="row">
-                  <div class="col-lg-6">
-                    <div class="d-flex flex-column h-100">
-                      <p class="mb-1 pt-2 text-bold">13/07/2022</p>
-                      <h5 class="font-weight-bolder">Morbi eu nulla lacus</h5>
-                      <p class="mb-5">Etiam feugiat enim in dui gravida, vitae pretium neque ultricies. Duis venenatis a metus non lacinia...</p>
-                      <a class="text-body text-sm font-weight-bold mb-0 icon-move-right mt-auto" href="{{route('sabias-que.show')}}">
-                        Aprender más
-                        <i class="fas fa-arrow-right text-sm ms-1" aria-hidden="true"></i>
-                      </a>
-                    </div>
-                  </div>
-                  <div class="col-lg-5 ms-auto text-center mt-5 mt-lg-0">
-                    <div class="bg-gradient-primary border-radius-lg h-100">
-                      <div class="position-relative d-flex align-items-center justify-content-center h-100">
-                        <img class="w-100 position-relative z-index-2 border-radius-lg" src="../assets/img/curved-images/field-farm.jpg" alt="rocket">
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+            @endforeach
+          
         </div>
       </div>
     </div>

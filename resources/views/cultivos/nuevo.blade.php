@@ -3,38 +3,43 @@
 @section('content')
 
 <div>
-    <div class="container-fluid">
-        <div class="page-header min-height-300 border-radius-xl mt-4 cover-centered" style="background-image:url('');">
-            <span class="mask bg-gradient-primary opacity-6"></span>
-        </div>
-        <div class="card card-body blur shadow-blur mx-4 mt-n6">
-            <div class="row gx-4">
-                <div class="col-auto my-auto">
-                    <div class="h-100">
-                        <h5 class="mb-1">
-                            {{ __('Agregar un nuevo cultivo') }}
-                        </h5>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 my-sm-auto ms-sm-auto me-sm-0 mx-auto mt-3">
-                    <div class="nav-wrapper position-relative end-0">
-                        <div class="d-flex justify-content-end">
-                            <label for="file" class="custom-file-upload btn bg-gradient-light btn-md mt-4 mb-4">
-                                {{ __('Editar imagen') }}
-                                <i class="fas fa-edit ms-2"></i>
-                            </label>
-                            <input id="file" type="file" name="file"/>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
     <div class="container-fluid py-4">
         <div class="card">
             <div class="card-body pt-4 p-3">
-                <form action="{{route('store.cultivo')}}" method="POST" role="form text-left">
+                <form action="{{route('store.cultivo')}}" method="POST" role="form text-left" enctype="multipart/form-data">
+
                     @csrf
+
+                    <div class="container-fluid">
+                        <div class="page-header min-height-300 border-radius-xl mt-4 cover-centered" style="background-image:url('');">
+                            <span class="mask bg-gradient-primary opacity-6"></span>
+                        </div>
+                        <div class="card card-body blur shadow-blur mx-4 mt-n6">
+                            <div class="row gx-4">
+                                <div class="col-auto my-auto">
+                                    <div class="h-100">
+                                        <h5 class="mb-1">
+                                            {{ __('Agregar un nuevo cultivo') }}
+                                        </h5>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-6 my-sm-auto ms-sm-auto me-sm-0 mx-auto mt-3">
+                                    <div class="nav-wrapper position-relative end-0">
+                                        <div class="d-flex justify-content-end">
+                                            <label for="file" class="custom-file-upload btn bg-gradient-light btn-md mt-4 mb-4">
+                                                {{ __('Editar imagen') }}
+                                                <i class="fas fa-edit ms-2"></i>
+                                            </label>
+                                            <input id="file" type="file" name="photo" accept="image/*"/>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
                     @if($errors->any())
                         <div class="mt-3  alert alert-primary alert-dismissible fade show" role="alert">
                             <span class="alert-text text-white">
@@ -53,6 +58,7 @@
                             </button>
                         </div>
                     @endif
+
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
@@ -131,7 +137,7 @@
                     <div class="form-group">
                         <label for="description">{{ 'Descripción' }}</label>
                         <div class="@error('description')border border-danger rounded-3 @enderror">
-                            <textarea class="form-control" id="description" rows="3" placeholder="Dinos algo de tu cultivo" name="description"></textarea>
+                            <textarea class="form-control" id="description" rows="3" placeholder="Dinos algo de tu cultivo (Opcional)" name="description"></textarea>
                         </div>
                     </div>
                     <div class="d-flex justify-content-end">

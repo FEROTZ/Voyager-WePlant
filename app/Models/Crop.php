@@ -8,4 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Crop extends Model
 {
     use HasFactory;
+    public function user(){
+        return $this->belongsTo('App\Models\User', 'user_id');
+    }
+    public function regulation()
+    {
+        return $this->hasOne('App\Models\Regulation');
+    }
 }

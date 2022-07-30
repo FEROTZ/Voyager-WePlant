@@ -45,9 +45,11 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-     /* Cógo modificado por Manuel */
-        public function orchards(){
-            return $this->hasMany('App\Models\Orchard');
-        }
+    public function orchards(){
+        return $this->hasMany('App\Models\Orchard');
+    }
+    public function crops(){
+        return $this->hasMany('App\Models\Crop');
+    }
 
 }

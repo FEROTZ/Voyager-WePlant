@@ -32,21 +32,29 @@
                                             <h5 class="text-white font-weight-bolder mb-4 pt-2">{{$crop->name}}</h5>
                                         </div>
                                         <div class="col-lg-6 col-5 text-end">
-                                            <div class="dropdown float-lg-end pe-4">
-                                                <a class="cursor-pointer" id="dropdownTable" data-bs-toggle="dropdown" aria-expanded="false">
-                                                    <i class="fa fa-ellipsis-v text-secondary"></i>
-                                                </a>
-                                                <ul class="dropdown-menu dropdown-cards px-2 py-3 ms-sm-n4 ms-n5" aria-labelledby="dropdownTable">
-                                                    <li><a class="dropdown-item border-radius-md" onclick="deleteConfirmation({{$crop->id}})" href="javascript:;">
-                                                        <i class="fas fa-trash text-end"></i>
-                                                        Eliminar
-                                                    </a></li>
-                                                </ul>
-                                            </div>
+                                            <form action="{{route('destroy.cultivo', $crop)}}" method="post" id="deleteForm" name="deleteForm">
+
+                                                @csrf
+
+                                                @method('delete')
+
+                                                <div class="dropdown float-lg-end pe-4">
+                                                    <a class="cursor-pointer" id="dropdownTable" data-bs-toggle="dropdown" aria-expanded="false">
+                                                        <i class="fa fa-ellipsis-v text-secondary"></i>
+                                                    </a>
+                                                    <ul class="dropdown-menu dropdown-cards px-2 py-3 ms-sm-n4 ms-n5" aria-labelledby="dropdownTable">
+
+                                                        <li><a class="dropdown-item border-radius-md" onclick="deleteConfirmation()" href="javascript:;">
+                                                            <i class="fas fa-trash text-end"></i>
+                                                            Eliminar
+                                                        </a></li>
+                                                    </ul>
+                                                </div>
+                                            </form>
                                         </div>
                                     </div>
                                     <div class="text-white text-sm font-weight-bold mb-0 mt-auto pt-4" href="javascript:;">
-                                        <a class="icon-move-right text-white" href="{{route('show.cultivo', ['id' => $crop->id])}}">
+                                        <a class="icon-move-right text-white" href="{{route('show.cultivo', $crop)}}">
                                             Acceder
                                             <i class="fas fa-arrow-right text-sm ms-1" aria-hidden="true"></i>
                                         </a>
@@ -70,10 +78,10 @@
         </div>
     </div>
     <script>
-        function deleteConfirmation(id) {
+        function deleteConfirmation() {
             console.log("Entró")
         swal.fire({
-            title: `¿Eliminar cultivo? ${id}`,
+            title: `¿Eliminar cultivo?`,
             icon: 'question',
             text: "Ten en cuenta que este cambio no se puede deshacer",
             showCancelButton: !0,
@@ -83,7 +91,10 @@
         }).then(function (e) {
 
             if (e.value === true) {
-                let token = $('meta[name="csrf-token"]').attr('content');
+
+                deleteForm.submit();
+
+                /* let token = $('meta[name="csrf-token"]').attr('content');
                 let _url = `/mi-cultivo/eliminar/${id}`;
 
                 $.ajax({
@@ -101,7 +112,7 @@
                     error: function (resp) {
                         swal.fire("Error!", 'Sumething went wrong.', "error");
                     }
-                });
+                }); */
 
             } else {
                 e.dismiss;

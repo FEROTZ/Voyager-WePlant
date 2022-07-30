@@ -13,9 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('regulations', function (Blueprint $table) {
-            $table->unsignedBigInteger('crop_id');
-            $table->foreign('crop_id')->references('id')->on('crops');
+        Schema::create('informations', function (Blueprint $table) {
+            $table->id();
+            $table->string('title');
+            $table->longText('description');
+            $table->string('photo');
+            $table->timestamps();
         });
     }
 
@@ -26,8 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('regulations', function (Blueprint $table) {
-            //
-        });
+        Schema::dropIfExists('information');
     }
 };
