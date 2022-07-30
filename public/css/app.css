@@ -40,3 +40,7 @@ input[type="file"] {
   top:0!important;
   transition:top .35s ease!important;
 }
+
+.article-font{
+  font-family: 'Poppins', sans-serif!important;
+}

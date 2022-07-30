@@ -1,5 +1,15 @@
 @extends('layouts.user_type.auth')
 
+@section('title')
+    <title>
+        WePlant | {{ $crop->name }}
+    </title>
+@endsection
+
+@section('page-title')
+    Mi Cultivo / {{ $crop->name }}
+@endsection
+
 @section('content')
 
 <div>
@@ -25,10 +35,16 @@
                                         </h5>
                                     </div>
                                 </div>
-                                <div class="col-lg-4 col-md-6 my-sm-auto ms-sm-auto me-sm-0 mx-auto mt-3">
-                                    <div class="nav-wrapper position-relative end-0 d-flex justify-content-end">
+                                <div class="col-lg-4 col-md-6 my-sm-auto ms-sm-auto me-sm-0 mx-auto mt-3 row justify-content-end">
+                                    <div class="col-4">
                                         <input type="checkbox" class="btn-check" name="Prueba" id="ChkEdit" autocomplete="off" onclick="checkEdit()">
                                         <label class="btn btn-outline-primary" for="ChkEdit"><i class="fas fa-edit"></i></label>
+                                    </div>
+                                    <div class="col-4">
+                                        <label for="file" class="custom-file-upload btn bg-gradient-light btn-md mb-4">
+                                            <i class="fas fa-camera"></i>
+                                        </label>
+                                        <input id="file" type="file" name="photo" accept="image/*" disabled/>
                                     </div>
                                 </div>
                             </div>
@@ -57,7 +73,7 @@
                     @endif
 
 
-                    <div class="row">
+                    <div class="row mt-4">
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="crop-name" class="form-control-label">{{ __('Nombre del cultivo') }}</label>
@@ -158,8 +174,8 @@
 <script>
 
     function checkEdit(){
-        console.log("Entro esta chingadera")
         var checkbox = document.getElementById("ChkEdit");	// Get the checkbox
+        var file = document.getElementById("file");	// Get the file input
         var name = document.getElementById("name"); // Get the name field
         var lowpH = document.getElementById("low_ph"); // Get the lowpH field
         var highpH = document.getElementById("high_ph"); // Get the highpH field
@@ -171,7 +187,7 @@
         var submit = document.getElementById("submit"); // Get the submit button
 
         if (checkbox.checked) {
-            console.log("Checado alv")
+            file.disabled = false;
             name.readOnly = false;
             lowpH.readOnly = false;
             highpH.readOnly = false;
@@ -182,7 +198,7 @@
             description.readOnly = false;
             submit.disabled = false;
         } else {
-            console.log("No checado alv")
+            file.disabled = true;
             name.readOnly = true;
             lowpH.readOnly = true;
             highpH.readOnly = true;
