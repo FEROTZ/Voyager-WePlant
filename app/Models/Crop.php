@@ -15,4 +15,8 @@ class Crop extends Model
     {
         return $this->hasOne('App\Models\Regulation');
     }
+    public function orchard()
+    {
+        return $this->hasOne('App\Models\Orchard');
+    }
 }

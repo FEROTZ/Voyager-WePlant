@@ -9,6 +9,10 @@ class Orchard extends Model
 {
     use HasFactory;
     public function user(){
-        return $this->belongsTo('App\Models\Orchard');
+        return $this->belongsTo('App\Models\User');
+    }
+    public function crop()
+    {
+        return $this->belongsTo('App\Models\Crop');
     }
 }

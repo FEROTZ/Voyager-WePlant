@@ -40,9 +40,24 @@ class OrchardController extends Controller
 
     }
 
-    public function show( $id ){
-        // $sensors = Sensor::all()->where('orchard_id', $id);
-        $orchard = Orchard::find($id);
-        return view('huertos.ver', compact('orchard'));
+    public function edit(Orchard $orchard, Request $request)
+    {
+        $crop = Crop::find($request->crop);
+
+        $orchard->name = $crop->name;
+        $orchard->location = $request->location;
+        $orchard->serial = $request->serial;
+        $orchard->crop_id = $request->crop;
+
+        $orchard->save();
+
+        return redirect()->route('show.huerto', $orchard);
+    }
+
+    public function show(Orchard $orchard)
+    {
+        $id = auth()->id();
+        $crops = Crop::all()->where('user_id', $id);
+        return view('huertos.ver', compact('orchard', 'crops'));
     }
 }
