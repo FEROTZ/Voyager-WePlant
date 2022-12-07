@@ -4,7 +4,7 @@
   <div class="row mt-4">
 
     <div class="col-lg-6 mb-lg-0 mb-4">
-        <div class="card h-100 p-3">
+        <div class="card h-100 p-2">
             <div class="card-header">
                 <div class="row">
                     <div class="col-lg-12 col-12">
@@ -18,23 +18,33 @@
                     </div>
                 </div>
             </div>
-
-            @foreach ($orchards as $orchard)
-                @php
-                    $photo = $orchard->crop->photo;
-                @endphp
-                <div class="overflow-hidden position-relative border-radius-lg bg-cover h-100 mb-2" style="background-image: url('{{asset("$photo")}}');">
-                    <span class="mask bg-gradient-dark"></span>
-                    <div class="card-body position-relative z-index-1 d-flex flex-column h-100 p-3">
-                        <h5 class="text-white font-weight-bolder mb-4 pt-2">{{$orchard->name}}</h5>
-                        <a class="text-white text-sm font-weight-bold mb-0 icon-move-right mt-auto pt-4" href="{{route('show.huerto', $orchard)}}">
-                        Acceder
-                        <i class="fas fa-arrow-right text-sm ms-1" aria-hidden="true"></i>
-                        </a>
+              @forelse ($orchards as $orchard)
+                  @php
+                      $photo = $orchard->crop->photo;
+                  @endphp
+                  <div class="overflow-hidden position-relative border-radius-lg bg-cover h-100 mb-2" style="background-image: url('{{asset("$photo")}}');">
+                      <span class="mask bg-gradient-dark"></span>
+                      <div class="card-body position-relative z-index-1 d-flex flex-column h-100 p-3">
+                          <h5 class="text-white font-weight-bolder mb-4 pt-2">{{$orchard->name}}</h5>
+                          <a class="text-white text-sm font-weight-bold mb-0 icon-move-right mt-auto pt-4" href="{{route('show.huerto', $orchard)}}">
+                          Acceder
+                          <i class="fas fa-arrow-right text-sm ms-1" aria-hidden="true"></i>
+                          </a>
+                      </div>
+                  </div>
+              @empty
+              <a href="{{route('create.huerto')}}">
+                <div class="overflow-hidden position-relative border-radius-lg h-100 m-2">
+                    <div class="card-body position-relative z-index-1 d-flex flex-column h-100 p-3 border-primary-dashed">
+                            <div class="p-2 justify-content-center text-center">
+                                <i class="fa fa-plus text-primary mb-1 mt-2"></i>
+                                <h5 class=" text-primary mb-2 pt-2"> Nuevo huerto </h5>
+                            </div>
                     </div>
                 </div>
-            @endforeach
-
+            </a>
+              @endforelse
+        
         </div>
     </div>
 
@@ -53,18 +63,34 @@
             </div>
           </div>
         </div>
-        @foreach ($crops as $crop)
-            <div class="overflow-hidden position-relative border-radius-lg bg-cover h-100 mb-2" style="background-image: url('{{asset("$crop->photo")}}');">
-                <span class="mask bg-gradient-dark"></span>
-                <div class="card-body position-relative z-index-1 d-flex flex-column h-100 p-3">
-                    <h5 class="text-white font-weight-bolder mb-4 pt-2">{{$crop->name}}</h5>
-                    <a class="text-white text-sm font-weight-bold mb-0 icon-move-right mt-auto pt-4" href="{{route('show.cultivo', $crop)}}">
-                    Acceder
-                    <i class="fas fa-arrow-right text-sm ms-1" aria-hidden="true"></i>
-                    </a>
+        
+
+          @forelse ($crops as $crop)
+              <div class="overflow-hidden position-relative border-radius-lg bg-cover h-100 mb-2" style="background-image: url('{{asset("$crop->photo")}}');">
+                  <span class="mask bg-gradient-dark"></span>
+                  <div class="card-body position-relative z-index-1 d-flex flex-column h-100 p-3">
+                      <h5 class="text-white font-weight-bolder mb-4 pt-2">{{$crop->name}}</h5>
+                      <a class="text-white text-sm font-weight-bold mb-0 icon-move-right mt-auto pt-4" href="{{route('show.cultivo', $crop)}}">
+                      Acceder
+                      <i class="fas fa-arrow-right text-sm ms-1" aria-hidden="true"></i>
+                      </a>
+                  </div>
+              </div>
+          @empty
+            
+              <a href="{{route('create.cultivo')}}">
+                <div class="overflow-hidden position-relative border-radius-lg h-100 m-2">
+                    <div class="card-body position-relative z-index-1 d-flex flex-column h-100 p-3 border-primary-dashed">
+                        <div class="p-2 justify-content-center text-center">
+                            <i class="fa fa-plus text-primary mb-1 mt-2"></i>
+                            <h5 class=" text-primary mb-2 pt-2"> Nuevo cultivo </h5>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        @endforeach
+              </a>
+          
+          @endforelse
+        
 
       </div>
     </div>

@@ -17,7 +17,10 @@
                 </div>
                 <div class="card-body px-0 pt-0 pb-2">
                     @foreach ($orchards as $orchard)
-                        <div class="overflow-hidden position-relative border-radius-lg bg-cover h-100 m-4" style="background-image: url('../assets/img/vegetables/frijoles.jpg');">
+                        @php
+                            $photo = $orchard->crop->photo;
+                        @endphp
+                        <div class="overflow-hidden position-relative border-radius-lg bg-cover h-100 m-4" style="background-image: url('{{asset("$photo")}}');">
                             <span class="mask bg-gradient-dark"></span>
                             <a class="icon-move-right" href="{{route('show.huerto', $orchard)}}">
                                 <div class="card-body position-relative z-index-1 d-flex flex-column h-100 p-3">
